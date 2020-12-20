@@ -48,12 +48,12 @@ class Human {
     var diveBehavior: DiveBehavior!
     var swimBehavior: SwimBehavior!
     
-    func setDiveBehavior(db: DiveBehavior) {
-        self.diveBehavior = db
+    func set(diveBehavior: DiveBehavior) {
+        self.diveBehavior = diveBehavior
     }
     
-    func setSwimBehavior(sb: SwimBehavior) {
-        self.swimBehavior = sb
+    func set(swimBehavior: SwimBehavior) {
+        self.swimBehavior = swimBehavior
     }
     
     func performSwim() {
@@ -76,11 +76,14 @@ class Human {
 
 
 let human = Human(swimBehavior: ProfessionalSwimmer(), diveBehavior: NewbieDiver())
-//human.setDiveBehavior(db: ProfessionanDiver())
-//human.setSwimBehavior(sb: NonSwimmer())
 
 human.performDive()
 human.performSwim()
 
-human.setSwimBehavior(sb: NonSwimmer())
+human.set(swimBehavior: NonSwimmer())
 human.performSwim()
+
+human.set(diveBehavior: ProfessionanDiver())
+human.performDive()
+
+human.run()
